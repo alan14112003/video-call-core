@@ -1,4 +1,8 @@
 const os = require('os')
+
+console.log(process.env.MEDIASOUP_ANNOUNCED_IP);
+
+
 const config = {
   // Listening hostname (just for `gulp live` task).
   domain: process.env.DOMAIN || 'localhost',
@@ -97,7 +101,6 @@ const config = {
     // each mediasoup Worker since each Worker is a separate process.
     webRtcServerOptions: {
       listenIps: [
-        { ip: '127.0.0.1', announcedIp: null }, // Local IP
         {
           ip: process.env.MEDIASOUP_LISTEN_IP || '0.0.0.0',
           announcedAddress:
